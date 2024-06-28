@@ -1,0 +1,12 @@
+:run
+EX=echo bye
+PERAM=
+
+:NWAgent
+EX=start.bat
+PATH=C:\Users\jesse\OneDrive\Documents\Projects\NWSG\NWMonitor
+
+:runner
+CMD=dir
+EX=echo
+PERAM=asldjasljd
