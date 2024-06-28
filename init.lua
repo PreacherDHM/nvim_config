@@ -16,6 +16,7 @@ require('msbuild')
 require("oil").setup()
 require('pOil')
 require('pRunner')
+require('GitConfiguration')
 
 vim.api.nvim_set_keymap('n', 'cd', [[:e . <CR>]], {})
 vim.api.nvim_set_keymap('n', '<leader>s', ':set list! <CR>', {})

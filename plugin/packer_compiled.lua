@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\jesse\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\jesse\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["kanagawa.nvim"] = {
     loaded = true,
     path = "C:\\Users\\jesse\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kanagawa.nvim",
@@ -189,6 +194,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\jesse\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "C:\\Users\\jesse\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   }
 }
 
