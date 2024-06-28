@@ -1,0 +1,3 @@
+[submodule "custom_plugins/Runner"]
+	path = custom_plugins/Runner
+	url = https://github.com/PreacherDHM/Runner.nvim.git
