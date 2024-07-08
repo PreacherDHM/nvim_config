@@ -5,6 +5,20 @@
 --              a .sln file.                    --
 --------------------------------------------------
 
+-- Configuration
+local config = {
+    -- Keybindings
+    keybindings = {
+        -- Set Project Name
+        ProjectName = '',
+        -- Set Configuration
+        ProjectConfig = '',
+        -- Set Project
+        Project = ''
+    }
+}
+
+
 local findfile = function(name)
     local cwd = vim.fn.getcwd()
     local file_exists = vim.fn.globpath("./", name)
@@ -13,6 +27,9 @@ end
 
 local inputProject = ""
 local inputConfiguration = ""
+local fileName = ''
+
+
 
 local msBuild = function()
     vim.cmd.vsplit()
@@ -22,38 +39,47 @@ local msBuild = function()
         inputProject .. [[ /p:Configuration="]] .. inputConfiguration .. [[" /p:BuildProjectReferences=false]])
 end
 
+local SetConfiguration = function()
+    inputProject = vim.fn.input("project: ")
+    if inputConfiguration == "" then
+        inputConfiguration = vim.fn.input("Configuration: ")
+    end
+    msBuild()
+end
+
+local SetProjectName = function()
+    if inputProject == "" then
+        inputProject = vim.fn.input("project: ")
+    end
+    inputConfiguration = vim.fn.input("Configuration: ")
+    msBuild()
+end
+
+local SetProject = function()
+    if inputProject == "" then
+        inputProject = vim.fn.input("project: ")
+    end
+    if inputConfiguration == "" then
+        inputConfiguration = vim.fn.input("Configuration: ")
+    end
+    msBuild()
+end
+
 local run = function()
     fileName = findfile('*.sln')
     if fileName ~= nil then
-        vim.api.nvim_set_keymap('n', '<leader>bb', '', {
-            callback = function()
-                if inputProject == "" then
-                    inputProject = vim.fn.input("project: ")
-                end
-                if inputConfiguration == "" then
-                    inputConfiguration = vim.fn.input("Configuration: ")
-                end
-                msBuild()
-            end
-        })
-        vim.api.nvim_set_keymap('n', '<leader>bp', '', {
-            callback = function()
-                inputProject = vim.fn.input("project: ")
-                if inputConfiguration == "" then
-                    inputConfiguration = vim.fn.input("Configuration: ")
-                end
-                msBuild()
-            end
-        })
-        vim.api.nvim_set_keymap('n', '<leader>bc', '', {
-            callback = function()
-                if inputProject == "" then
-                    inputProject = vim.fn.input("project: ")
-                end
-                inputConfiguration = vim.fn.input("Configuration: ")
-                msBuild()
-            end
-        })
+        if config.keybindings.ProjectName ~= '' then
+            vim.api.nvim_set_keymap('n', config.keybindings.ProjectName, '', {
+                callback = SetProject })
+        end
+        if config.keybindings.ProjectConfig ~= '' then
+            vim.api.nvim_set_keymap('n', config.keybindings.ProjectConfig, '', {
+                callback = SetProjectName })
+        end
+        if config.keybindings.Project ~= '' then
+            vim.api.nvim_set_keymap('n', config.keybindings.Project, '', {
+                callback = SetConfiguration })
+        end
     end
 end
 
