@@ -29,7 +29,7 @@ local lspconfig = require('lspconfig')
 lspconfig.marksman.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    --cmd = { "C:/marksman/marksman.exe" }
+    cmd = { "C:/marksman/marksman.exe" }
 })
 
 -- OmniSharp

@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
     use('EdenEast/nightfox.nvim')
     --Git
     use('tpope/vim-fugitive')
-    use('lewis6991/gitsigns.nvim')
+    use("lewis6991/gitsigns.nvim")
 
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
