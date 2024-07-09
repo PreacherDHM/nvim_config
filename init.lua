@@ -13,6 +13,7 @@ require('pMason')
 
 require('startup')
 --require('cmake')
+require('pMsBuild')
 require('msbuild')
 require("oil").setup()
 require('pOil')

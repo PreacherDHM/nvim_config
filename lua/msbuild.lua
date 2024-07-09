@@ -5,18 +5,20 @@
 --              a .sln file.                    --
 --------------------------------------------------
 
+local M = {}
 -- Configuration
 local config = {
     -- Keybindings
     keybindings = {
         -- Set Project Name
-        ProjectName = '',
+        ProjectName = '<leader>bn',
         -- Set Configuration
-        ProjectConfig = '',
+        ProjectConfig = '<leader>bc',
         -- Set Project
-        Project = ''
+        Project = '<leader>bb'
     }
 }
+
 
 
 local findfile = function(name)
@@ -65,6 +67,7 @@ local SetProject = function()
     msBuild()
 end
 
+
 local run = function()
     fileName = findfile('*.sln')
     if fileName ~= nil then
@@ -83,4 +86,9 @@ local run = function()
     end
 end
 
-return run()
+M.setup = function (configuration)
+    config = configuration
+    run()
+end
+
+return M
